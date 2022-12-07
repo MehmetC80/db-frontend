@@ -24,7 +24,7 @@ export interface DBModel {
   Status: string;
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}`;
 
 export default function Home() {
 
@@ -97,7 +97,7 @@ export default function Home() {
               onChange={(e) => { setOriginTemp(e.target.value) }}
               value={originTemp}
               onClick={handleOriginInput} />
-            {searchOriginData && <ul>{searchOriginData.map(item => (<li className={origin ? "hidden" : "block"} onClick={(e) => { setOriginTemp(item.NAME); setOrigin(item.DS100) }}>{item.NAME}</li>)
+            {searchOriginData && <ul className="bg-slate-200/60 px-2">{searchOriginData.map(item => (<li className={origin ? "hidden" : "block py-3 px-2 hover:scale-105 hover:bg-slate-200"} onClick={(e) => { setOriginTemp(item.NAME); setOrigin(item.DS100) }}>{item.NAME}</li>)
             )}</ul>}
 
             <Input
@@ -108,7 +108,7 @@ export default function Home() {
               onChange={(e) => { setDestinationTemp(e.target.value) }}
               value={destinationTemp}
             />
-            {searchDestinationData && <ul>{searchDestinationData.map(item => (<li className={destination ? "hidden" : "block"} onClick={(e) => { setDestinationTemp(item.NAME); setDestination(item.DS100); }}>{item.NAME}</li>)
+            {searchDestinationData && <ul className=" bg-slate-200/60 px-2">{searchDestinationData.map(item => (<li className={destination ? "hidden" : "block py-3 px-2 hover:scale-105 hover:bg-slate-200"} onClick={(e) => { setDestinationTemp(item.NAME); setDestination(item.DS100); }}>{item.NAME}</li>)
             )}</ul>}
           </div>
           <div>
@@ -117,22 +117,22 @@ export default function Home() {
           </div>
 
         </div>
+        <div className="mt-10 border rounded-md"> {data && <div className="px-6 py-4">
 
+          <p className="font-normal" >Von: <span className="font-normal" >{data.from}</span> </p>
+          <p className="font-normal" > Ziel: <span className="font-normal">{data.to}</span> </p>
+          < div >
+            <h3 className="font-normal text-xl mt-2">Luftlinie </h3>
+            <p className="font-normal"> Distanz: <span className="font-normal">{data.distance} </span></p>
+            <p className="font-normal"> Einheit: <span className="font-normal">{data.unit}</span> </p>
+          </div>
+
+        </div>}
+        </div >
 
       </div>
 
-      <div> {data && <div>
 
-        <p>Von: {data.from} </p>
-        <p> Ziel: {data.to} </p>
-        < div >
-          <h3>Luftlinie </h3>
-          <p> Distanz: {data.distance} </p>
-          <p> Einheit in: {data.unit} </p>
-        </div>
-
-      </div>}
-      </div >
 
 
     </div>
