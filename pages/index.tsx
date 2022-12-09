@@ -112,8 +112,8 @@ export default function Home() {
             )}</ul>}
           </div>
           <div>
-            <Button onClick={handleSubmit}>Distanz Berechnen</Button>
-            <Button onClick={handleReset}>Reset</Button>
+            <Button colors="normal" onClick={handleSubmit}>Distanz Berechnen</Button>
+            <Button colors="danger" onClick={handleReset}>Reset</Button>
           </div>
 
         </div>
